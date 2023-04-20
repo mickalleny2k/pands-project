@@ -32,3 +32,15 @@ for i, ax in enumerate(axes.flat):
 
 plt.show()
 plt.close()
+
+iris = sns.load_dataset("iris")
+
+ratio = iris["sepal_length"]/iris["sepal_width"]
+
+for name, group in iris.groupby("species"):
+    plt.scatter(group.index, ratio[group.index], label=name)
+
+plt.legend()
+plt.savefig('scatterplot.png')
+plt.show()
+plt.close()
