@@ -9,13 +9,18 @@ from sklearn import datasets
 filename = "iris.csv"
 
 iris = pd.read_csv('iris.csv')
-iris.columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species']
+iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species']
+iris['sl*sw'] = iris['sepal_length'] * iris['sepal_width']
+iris['pl*pw'] = iris['petal_length'] * iris['petal_width']
+iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw']
 
 sys.stdout = open('output.txt','wt')
 summary = iris.describe()
 summary = summary.transpose()
 summary.head()
 print(summary)
+print()
+print(iris[iris_columns].head(10))
 
 iris= datasets.load_iris()
 
