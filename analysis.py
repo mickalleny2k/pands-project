@@ -9,10 +9,26 @@ from sklearn import datasets
 filename = "iris.csv"
 
 iris = pd.read_csv('iris.csv')
+#print(iris)
 iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species']
 iris['sl*sw'] = iris['sepal_length'] * iris['sepal_width']
 iris['pl*pw'] = iris['petal_length'] * iris['petal_width']
-iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw']
+iris['sl+sw'] = iris['sepal_length'] + iris['sepal_width']
+iris['pl+pw'] = iris['petal_length'] + iris['petal_width']
+iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
+iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
+#print(iris)
+#def addColumnAddition(iris, newCol ,col1, col2, delim=', '):
+    # this could use the cat function or simple additions
+#    iris[newCol] = iris[col1] + delim + iris[col2] 
+
+#addColumnAddition(iris, newCol='newCol',petal_length','petal_width')
+    
+    # I don't need to return df as it should be changed
+    # but i am to allow chaining
+#    return df
+#iris.loc['4.6', 'setosa']
+
 
 sys.stdout = open('output.txt','wt')
 summary = iris.describe()
@@ -21,6 +37,37 @@ summary.head()
 print(summary)
 print()
 print(iris[iris_columns].head(10))
+print()
+mean = iris.groupby('species').mean()
+print(mean)
+print()
+sum = iris.groupby('species').sum()
+print(sum)
+
+iris.to_excel('output.xlsx')
+
+'''
+def add_cols(iris, iris_columns):
+    filename = "iris.csv"
+    iris = pd.read_csv('iris.csv')
+    iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw']
+    iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
+    #iris['pl/pw'] = iris['petal_length'] / iris['petal_width']
+    #iris['sl-sw'] = iris['sepal_length'] - iris['sepal_width']
+    #iris['pl-pw'] = iris['petal_length'] - iris['petal_width']
+    iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
+    sys.stdout = open('output.txt','wt')
+    summary = iris.describe()
+    summary = summary.transpose()
+    summary.head()
+    print(summary)
+    print()
+    print(iris[iris_columns].head(10))
+
+add_cols(iris, iris_columns)
+'''
+#with open("sepal_length.txt", "wt") as f:
+#    print(iris_columns['sepal_length'])
 
 iris= datasets.load_iris()
 
