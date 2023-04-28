@@ -5,6 +5,8 @@ import seaborn as sns
 import sys
 import matplotlib.pyplot as plt
 from sklearn import datasets
+import re
+import fileinput
 
 filename = "iris.csv"
 
@@ -48,8 +50,44 @@ print()
 sum = iris.groupby('species').sum()
 print(sum)
 
-iris.to_excel('output.xlsx')
+number_of_letters = 0
+number_of_chars = 0
+number_of_numbers = 0
+number_of_setosa = 0
+number_of_versicolor = 0
+number_of_virginica = 0
+#output_file = 'output.txt'
 
+#Research
+#https://stackoverflow.com/questions/7439145/i-want-to-read-in-a-file-from-the-command-line-in-python
+#Use a for loop to count the number of e's in each line of the text file
+
+for line in fileinput.input():
+    letters = len(re.findall('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]', line))
+    chars = len(re.findall('[?/:()%@#*<,]', line))
+    numbers = len(re.findall('[0123456789]', line))
+    setosa = len(re.findall('setosa', line))
+    versicolor = len(re.findall('versicolor', line))
+    virginica = len(re.findall('virginica', line))
+    #find all of the e's and E's in each line
+    number_of_letters = number_of_letters + letters
+    number_of_chars = number_of_chars + chars
+    number_of_numbers = number_of_numbers + numbers
+    number_of_setosa = number_of_setosa + setosa
+    number_of_versicolor = number_of_versicolor + versicolor
+    number_of_virginica = number_of_virginica + virginica
+    # Update the variable after each iteration of the loop
+
+print()
+print(f"The total number of letters contained in the iris.csv file is {number_of_letters}")
+print(f"The total number of special characters contained in the iris.csv file is {number_of_chars}")
+print(f"The total number of numbers contained in the iris.csv file is {number_of_numbers}")
+print(f"The total number of setosa contained in the iris.csv file is {number_of_setosa}")
+print(f"The total number of versicolor contained in the iris.csv file is {number_of_versicolor}")
+print(f"The total number of virginica contained in the iris.csv file is {number_of_virginica}")
+
+iris.to_excel('output.xlsx')
+ 
 '''
 def add_cols(iris, iris_columns):
     filename = "iris.csv"

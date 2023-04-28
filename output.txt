@@ -40,3 +40,10 @@ species
 setosa             250.3        170.9          73.2         12.2  860.44   18.14  421.2   85.4   73.728918
 versicolor         296.8        138.5         213.0         66.3  826.31  286.02  435.3  279.3  108.020110
 virginica          329.4        148.7         277.6        101.3  984.23  564.81  478.1  378.9  111.522637
+
+The total number of letters contained in the iris.csv file is 1299
+The total number of special characters contained in the iris.csv file is 604
+The total number of numbers contained in the iris.csv file is 1129
+The total number of setosa contained in the iris.csv file is 50
+The total number of versicolor contained in the iris.csv file is 50
+The total number of virginica contained in the iris.csv file is 50
