@@ -85,6 +85,12 @@ print(f"The total number of numbers contained in the iris.csv file is {number_of
 print(f"The total number of setosa contained in the iris.csv file is {number_of_setosa}")
 print(f"The total number of versicolor contained in the iris.csv file is {number_of_versicolor}")
 print(f"The total number of virginica contained in the iris.csv file is {number_of_virginica}")
+print()
+print(f"The dataframe size is {iris.size}")
+print()
+print(pd.crosstab('species', ['sepal_length', 'petal_length']))
+print()
+print(iris.loc[75:80])
 
 iris.to_excel('output.xlsx')
  
