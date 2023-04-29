@@ -24,18 +24,19 @@ iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', '
 print(iris["sl/sw"].head(5))
 
 '''
-def addColumnAddition(iris, newCol ,col1, col2, delim=', '):
+def addColumnAddition(iris, newCol, col1, col2, delim=', '):
     # this could use the cat function or simple additions
     iris[newCol] = iris[col1] + delim + iris[col2] 
+    return iris
 
-addColumnAddition(iris, newCol="newCol", col1='petal_length', col2='petal_width', delim=',')
-print(addColumnAddition)
+addColumnAddition(iris,"newCol",'petal_length','petal_width', delim=',')
+print(iris.head(5))
 
-#addColumnAddition(iris, newCol='newCol',petal_length','petal_width')
+addColumnAddition(iris, newCol='newCol',petal_length','petal_width')
     
     # I don't need to return df as it should be changed
     # but i am to allow chaining
-#    return df
+    return iris
 #iris.loc['4.6', 'setosa']
 '''
 
@@ -43,29 +44,53 @@ sys.stdout = open('output.txt','wt')
 summary = iris.describe()
 summary = summary.transpose()
 summary.head()
+print("                                         SUMMARY OF DATA : ")
 print(summary)
 print()
-print(iris[iris_columns].head(10))
-print()
-col1and2 = ['sepal_length', 'sepal_width']
-#print(iris[['sepal_length', 'sepal_width']].head(6)) 
-print(iris[col1and2].head(6))
+print("                                         THE FIRST 10 ROWS : ")
+print(iris[iris_columns].head(11))
 print()
 mean = iris.groupby('species').mean()
+print("                                         THE MEAN OF EACH SPECIES : ")
 print(mean)
 print()
+max = iris.groupby('species').max()
+print("                                         THE MAX OF EACH SPECIES : ")
+print(max)
+print()
+min = iris.groupby('species').min()
+print("                                         THE MIN OF EACH SPECIES : ")
+print(min)
+print()
 sum = iris.groupby('species').sum()
+print("                                         THE SUM OF EACH SPECIES : ")
 print(sum)
 print()
+print("                                         ROWS 146 - 151 : ") 
 print(iris.iloc[146:151])
 #print(iris.iloc[:-4])
 print()
+print("                                         ROWS 75 - 80 : ")
+print(iris.loc[75:80])
 #iris.replace(to_replace='setosa', value='asotes')
 #iris.replace(to_replace='setosa', value='new', regex=True)
 iris.replace({'species':'setosa'}, {'species': 'new'}, inplace=True, regex=True)
+print()
+print(" THE SPECIES COLUMN : ")
 print(iris["species"].head(5))
 iris.replace({'species':'new'}, {'species': 'setosa'}, inplace=True, regex=True)
 print(iris["species"].head(5))
+print()
+print(" THE DATAFRAME SIZE : ")
+print(f"The dataframe size is {iris.size}")
+print()
+print(" CROSS TABULATION : ")
+print(pd.crosstab('species', ['sepal_length', 'petal_length']))
+print()
+col1and2 = ['sepal_length', 'sepal_width']
+#print(iris[['sepal_length', 'sepal_width']].head(6)) 
+print(" COLUMN 1 & 2 : ")
+print(iris[col1and2].head(6))
 
 number_of_letters = 0
 number_of_chars = 0
@@ -102,12 +127,6 @@ print(f"The total number of numbers contained in the iris.csv file is {number_of
 print(f"The total number of setosa contained in the iris.csv file is {number_of_setosa}")
 print(f"The total number of versicolor contained in the iris.csv file is {number_of_versicolor}")
 print(f"The total number of virginica contained in the iris.csv file is {number_of_virginica}")
-print()
-print(f"The dataframe size is {iris.size}")
-print()
-print(pd.crosstab('species', ['sepal_length', 'petal_length']))
-print()
-print(iris.loc[75:80])
 
 iris.to_excel('output.xlsx')
  
