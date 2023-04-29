@@ -41,6 +41,25 @@ setosa             250.3        170.9          73.2         12.2  860.44   18.14
 versicolor         296.8        138.5         213.0         66.3  826.31  286.02  435.3  279.3  108.020110
 virginica          329.4        148.7         277.6        101.3  984.23  564.81  478.1  378.9  111.522637
 
+     sepal_length  sepal_width  petal_length  petal_width    species  sl*sw  pl*pw  sl+sw  pl+pw     sl/sw
+146           6.3          2.5           5.0          1.9  virginica  15.75   9.50    8.8    6.9  2.520000
+147           6.5          3.0           5.2          2.0  virginica  19.50  10.40    9.5    7.2  2.166667
+148           6.2          3.4           5.4          2.3  virginica  21.08  12.42    9.6    7.7  1.823529
+149           5.9          3.0           5.1          1.8  virginica  17.70   9.18    8.9    6.9  1.966667
+
+0    new
+1    new
+2    new
+3    new
+4    new
+Name: species, dtype: object
+0    setosa
+1    setosa
+2    setosa
+3    setosa
+4    setosa
+Name: species, dtype: object
+
 The total number of letters contained in the iris.csv file is 1299
 The total number of special characters contained in the iris.csv file is 604
 The total number of numbers contained in the iris.csv file is 1129

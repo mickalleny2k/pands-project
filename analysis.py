@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 import re
 import fileinput
+import dataManipulation
 
 filename = "iris.csv"
 
@@ -19,10 +20,16 @@ iris['sl+sw'] = iris['sepal_length'] + iris['sepal_width']
 iris['pl+pw'] = iris['petal_length'] + iris['petal_width']
 iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
 iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
-#print(iris)
-#def addColumnAddition(iris, newCol ,col1, col2, delim=', '):
+
+print(iris["sl/sw"].head(5))
+
+'''
+def addColumnAddition(iris, newCol ,col1, col2, delim=', '):
     # this could use the cat function or simple additions
-#    iris[newCol] = iris[col1] + delim + iris[col2] 
+    iris[newCol] = iris[col1] + delim + iris[col2] 
+
+addColumnAddition(iris, newCol="newCol", col1='petal_length', col2='petal_width', delim=',')
+print(addColumnAddition)
 
 #addColumnAddition(iris, newCol='newCol',petal_length','petal_width')
     
@@ -30,7 +37,7 @@ iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', '
     # but i am to allow chaining
 #    return df
 #iris.loc['4.6', 'setosa']
-
+'''
 
 sys.stdout = open('output.txt','wt')
 summary = iris.describe()
@@ -49,6 +56,16 @@ print(mean)
 print()
 sum = iris.groupby('species').sum()
 print(sum)
+print()
+print(iris.iloc[146:151])
+#print(iris.iloc[:-4])
+print()
+#iris.replace(to_replace='setosa', value='asotes')
+#iris.replace(to_replace='setosa', value='new', regex=True)
+iris.replace({'species':'setosa'}, {'species': 'new'}, inplace=True, regex=True)
+print(iris["species"].head(5))
+iris.replace({'species':'new'}, {'species': 'setosa'}, inplace=True, regex=True)
+print(iris["species"].head(5))
 
 number_of_letters = 0
 number_of_chars = 0
@@ -136,6 +153,7 @@ plt.close()
 iris = sns.load_dataset("iris")
 
 ratio = iris["sepal_length"]/iris["sepal_width"]
+
 
 for name, group in iris.groupby("species"):
     plt.scatter(group.index, ratio[group.index], label=name)
