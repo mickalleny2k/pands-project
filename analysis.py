@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 import re
 import fileinput
-import dataManipulation
+#import dataManipulation
 
 filename = "iris.csv"
 
@@ -121,6 +121,7 @@ for line in fileinput.input():
     # Update the variable after each iteration of the loop
 
 print()
+print("                     TOTAL NUMBER OF .......")
 print(f"The total number of letters contained in the iris.csv file is {number_of_letters}")
 print(f"The total number of special characters contained in the iris.csv file is {number_of_chars}")
 print(f"The total number of numbers contained in the iris.csv file is {number_of_numbers}")
@@ -128,9 +129,60 @@ print(f"The total number of setosa contained in the iris.csv file is {number_of_
 print(f"The total number of versicolor contained in the iris.csv file is {number_of_versicolor}")
 print(f"The total number of virginica contained in the iris.csv file is {number_of_virginica}")
 
+excel_file = "output.xlsx"
 iris.to_excel('output.xlsx')
- 
+with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
+    iris['petal_length'].to_excel(writer, sheet_name="petal_length", index=False)
+with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
+    iris['petal_width'].to_excel(writer, sheet_name="petal_width", index=False)
+with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
+    iris['pl+pw'].to_excel(writer, sheet_name="pl+pw", index=False)
+
+def getUnique(iris, nameOfCol, delim = ','):
+    # drop na gets rid of the values in the series that have no value
+    # this actually returns a numpy.ndarray
+    valuesWithDelims = iris[nameOfCol].dropna().unique() 
+    valuesWithDelims.sort()
+    print(valuesWithDelims)
+#    print(iris[nameOfCol].dropna().unique())
+print()
+print("                   UNIQUE SORTED VALUES FOR SEPAL LENGTH : ")
+getUnique(iris, nameOfCol='sepal_length', delim = ',')
+print()
+print("                   UNIQUE SORTED VALUES FOR SEPAL WIDTH : ")
+getUnique(iris, nameOfCol='sepal_width', delim = ',')
+print()
+print("                    UNIQUE SORTED VALUES FOR PETAL LENGTH : ")
+getUnique(iris, nameOfCol='petal_length', delim = ',')
+print()
+print("                    UNIQUE SORTED VALUES FOR PETAL WIDTH : ")
+getUnique(iris, nameOfCol='petal_width', delim = ',')
+
+def ColumnAddition(iris, newCol ,col1, col2, delim=', '):
+    # this could use the cat function or simple additions
+    iris[newCol] = iris[col1] + iris[col2] 
+    
+    # I don't need to return df as it should be changed
+    # but i am to allow chaining
+    print(f"{iris[newCol].head(10)}")
+    return iris[newCol]
+print()
+print("SEPAL LENGTH + SEPAL WIDTH")
+ColumnAddition(iris, newCol='SL + SW', col1='sepal_length', col2='sepal_width', delim=', ')
+print()
+print("PETAL LENGTH + PETAL WIDTH")
+ColumnAddition(iris, newCol='PL + PW', col1='petal_length', col2='petal_width', delim=', ')
 '''
+def getSeriesOfUnique(iris, nameOfCol, delim = ','):
+    # drop na gets rid of the values in the series that have no value
+    # this actually returns a numpy.ndarray
+    valuesWithDelims = iris[nameOfCol].dropna().unique()
+    print(iris[nameOfCol].dropna().unique())
+
+getSeriesOfUnique(iris, nameOfCol='sepal_length', delim = ',')
+getSeriesOfUnique(iris, nameOfCol='sepal_width', delim = ',')
+getSeriesOfUnique(iris, nameOfCol='petal_length', delim = ',')
+getSeriesOfUnique(iris, nameOfCol='petal_width', delim = ',')
 def add_cols(iris, iris_columns):
     filename = "iris.csv"
     iris = pd.read_csv('iris.csv')
