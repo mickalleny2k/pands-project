@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 import re
 import fileinput
-#import dataManipulation
 
 filename = "iris.csv"
 
@@ -22,23 +21,6 @@ iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
 iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
 
 print(iris["sl/sw"].head(5))
-
-'''
-def addColumnAddition(iris, newCol, col1, col2, delim=', '):
-    # this could use the cat function or simple additions
-    iris[newCol] = iris[col1] + delim + iris[col2] 
-    return iris
-
-addColumnAddition(iris,"newCol",'petal_length','petal_width', delim=',')
-print(iris.head(5))
-
-addColumnAddition(iris, newCol='newCol',petal_length','petal_width')
-    
-    # I don't need to return df as it should be changed
-    # but i am to allow chaining
-    return iris
-#iris.loc['4.6', 'setosa']
-'''
 
 sys.stdout = open('output.txt','wt')
 summary = iris.describe()
@@ -159,11 +141,7 @@ print("                    UNIQUE SORTED VALUES FOR PETAL WIDTH : ")
 getUnique(iris, nameOfCol='petal_width', delim = ',')
 
 def ColumnAddition(iris, newCol ,col1, col2, delim=', '):
-    # this could use the cat function or simple additions
     iris[newCol] = iris[col1] + iris[col2] 
-    
-    # I don't need to return df as it should be changed
-    # but i am to allow chaining
     print(f"{iris[newCol].head(10)}")
     return iris[newCol]
 print()
@@ -172,36 +150,7 @@ ColumnAddition(iris, newCol='SL + SW', col1='sepal_length', col2='sepal_width', 
 print()
 print("PETAL LENGTH + PETAL WIDTH")
 ColumnAddition(iris, newCol='PL + PW', col1='petal_length', col2='petal_width', delim=', ')
-'''
-def getSeriesOfUnique(iris, nameOfCol, delim = ','):
-    # drop na gets rid of the values in the series that have no value
-    # this actually returns a numpy.ndarray
-    valuesWithDelims = iris[nameOfCol].dropna().unique()
-    print(iris[nameOfCol].dropna().unique())
 
-getSeriesOfUnique(iris, nameOfCol='sepal_length', delim = ',')
-getSeriesOfUnique(iris, nameOfCol='sepal_width', delim = ',')
-getSeriesOfUnique(iris, nameOfCol='petal_length', delim = ',')
-getSeriesOfUnique(iris, nameOfCol='petal_width', delim = ',')
-def add_cols(iris, iris_columns):
-    filename = "iris.csv"
-    iris = pd.read_csv('iris.csv')
-    iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw']
-    iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
-    #iris['pl/pw'] = iris['petal_length'] / iris['petal_width']
-    #iris['sl-sw'] = iris['sepal_length'] - iris['sepal_width']
-    #iris['pl-pw'] = iris['petal_length'] - iris['petal_width']
-    iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
-    sys.stdout = open('output.txt','wt')
-    summary = iris.describe()
-    summary = summary.transpose()
-    summary.head()
-    print(summary)
-    print()
-    print(iris[iris_columns].head(10))
-
-add_cols(iris, iris_columns)
-'''
 #with open("sepal_length.txt", "wt") as f:
 #    print(iris_columns['sepal_length'])
 
