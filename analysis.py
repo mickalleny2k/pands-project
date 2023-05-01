@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 import re
 import fileinput
+import random
 
 filename = "iris.csv"
 
@@ -126,30 +127,40 @@ def getUnique(iris, nameOfCol, delim = ','):
     valuesWithDelims = iris[nameOfCol].dropna().unique() 
     valuesWithDelims.sort()
     print(valuesWithDelims)
+    list = valuesWithDelims.tolist()
+    print("                     SORTED LIST OF UNIQUE VALUES : ")
+    print(list)
+    random.shuffle(list)
+    print("                     RANDOM SHUFFLED LIST OF UNIQUE VALUES : ")
+    print(list)
 #    print(iris[nameOfCol].dropna().unique())
 print()
-print("                   UNIQUE SORTED VALUES FOR SEPAL LENGTH : ")
+print()
+print("                   SERIES OF UNIQUE SORTED VALUES FOR SEPAL LENGTH : ")
 getUnique(iris, nameOfCol='sepal_length', delim = ',')
 print()
-print("                   UNIQUE SORTED VALUES FOR SEPAL WIDTH : ")
+print()
+print("                   SERIES OF UNIQUE SORTED VALUES FOR SEPAL WIDTH : ")
 getUnique(iris, nameOfCol='sepal_width', delim = ',')
 print()
-print("                    UNIQUE SORTED VALUES FOR PETAL LENGTH : ")
+print()
+print("                    SERIES OF UNIQUE SORTED VALUES FOR PETAL LENGTH : ")
 getUnique(iris, nameOfCol='petal_length', delim = ',')
 print()
-print("                    UNIQUE SORTED VALUES FOR PETAL WIDTH : ")
+print()
+print("                    SERIES OF UNIQUE SORTED VALUES FOR PETAL WIDTH : ")
 getUnique(iris, nameOfCol='petal_width', delim = ',')
 
-def ColumnAddition(iris, newCol ,col1, col2, delim=', '):
+def ColumnAddition(iris, newCol ,col1, col2, delim=', ', index=False):
     iris[newCol] = iris[col1] + iris[col2] 
     print(f"{iris[newCol].head(10)}")
     return iris[newCol]
 print()
 print("SEPAL LENGTH + SEPAL WIDTH")
-ColumnAddition(iris, newCol='SL + SW', col1='sepal_length', col2='sepal_width', delim=', ')
+ColumnAddition(iris, newCol='SL + SW', col1='sepal_length', col2='sepal_width', delim=', ', index=False)
 print()
 print("PETAL LENGTH + PETAL WIDTH")
-ColumnAddition(iris, newCol='PL + PW', col1='petal_length', col2='petal_width', delim=', ')
+ColumnAddition(iris, newCol='PL + PW', col1='petal_length', col2='petal_width', delim=', ', index=False)
 
 #with open("sepal_length.txt", "wt") as f:
 #    print(iris_columns['sepal_length'])
