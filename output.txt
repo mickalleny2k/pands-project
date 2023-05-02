@@ -26,12 +26,60 @@ sl/sw         150.0   1.955144  0.398697   1.268293   1.551915   2.032292   2.22
 
 [11 rows x 10 columns]
 
+                                         THE LAST 10 ROWS : 
+     sepal_length  sepal_width  petal_length  petal_width  ...  pl*pw  sl+sw  pl+pw     sl/sw
+140           6.7          3.1           5.6          2.4  ...  13.44    9.8    8.0  2.161290
+141           6.9          3.1           5.1          2.3  ...  11.73   10.0    7.4  2.225806
+142           5.8          2.7           5.1          1.9  ...   9.69    8.5    7.0  2.148148
+143           6.8          3.2           5.9          2.3  ...  13.57   10.0    8.2  2.125000
+144           6.7          3.3           5.7          2.5  ...  14.25   10.0    8.2  2.030303
+145           6.7          3.0           5.2          2.3  ...  11.96    9.7    7.5  2.233333
+146           6.3          2.5           5.0          1.9  ...   9.50    8.8    6.9  2.520000
+147           6.5          3.0           5.2          2.0  ...  10.40    9.5    7.2  2.166667
+148           6.2          3.4           5.4          2.3  ...  12.42    9.6    7.7  1.823529
+149           5.9          3.0           5.1          1.8  ...   9.18    8.9    6.9  1.966667
+
+[10 rows x 10 columns]
+
+                                         RANDOM SAMPLE OF 10 ROWS : 
+     sepal_length  sepal_width  petal_length  petal_width  ...  pl*pw  sl+sw  pl+pw     sl/sw
+24            4.8          3.4           1.9          0.2  ...   0.38    8.2    2.1  1.411765
+125           7.2          3.2           6.0          1.8  ...  10.80   10.4    7.8  2.250000
+99            5.7          2.8           4.1          1.3  ...   5.33    8.5    5.4  2.035714
+12            4.8          3.0           1.4          0.1  ...   0.14    7.8    1.5  1.600000
+89            5.5          2.5           4.0          1.3  ...   5.20    8.0    5.3  2.200000
+44            5.1          3.8           1.9          0.4  ...   0.76    8.9    2.3  1.342105
+33            5.5          4.2           1.4          0.2  ...   0.28    9.7    1.6  1.309524
+70            5.9          3.2           4.8          1.8  ...   8.64    9.1    6.6  1.843750
+91            6.1          3.0           4.6          1.4  ...   6.44    9.1    6.0  2.033333
+45            4.8          3.0           1.4          0.3  ...   0.42    7.8    1.7  1.600000
+
+[10 rows x 10 columns]
+
                                          THE MEAN OF EACH SPECIES : 
             sepal_length  sepal_width  petal_length  ...  sl+sw  pl+pw     sl/sw
 species                                              ...                        
 setosa             5.006        3.418         1.464  ...  8.424  1.708  1.474578
 versicolor         5.936        2.770         4.260  ...  8.706  5.586  2.160402
 virginica          6.588        2.974         5.552  ...  9.562  7.578  2.230453
+
+[3 rows x 9 columns]
+
+                                         THE STANDARD DEVIATION OF EACH SPECIES : 
+            sepal_length  sepal_width  petal_length  ...     sl+sw     pl+pw     sl/sw
+species                                              ...                              
+setosa          0.352490     0.381024      0.173511  ...  0.685583  0.230208  0.118693
+versicolor      0.516171     0.313798      0.469911  ...  0.731621  0.637281  0.228658
+virginica       0.635880     0.322497      0.551895  ...  0.834190  0.691136  0.246992
+
+[3 rows x 9 columns]
+
+                                         THE MEDIAN OF EACH SPECIES : 
+            sepal_length  sepal_width  petal_length  petal_width  ...   pl*pw  sl+sw  pl+pw     sl/sw
+species                                                           ...                                
+setosa               5.0          3.4          1.50          0.2  ...   0.300    8.4   1.70  1.467708
+versicolor           5.9          2.8          4.35          1.3  ...   5.615    8.6   5.65  2.161290
+virginica            6.5          3.0          5.55          2.0  ...  11.445    9.6   7.55  2.169540
 
 [3 rows x 9 columns]
 
@@ -62,7 +110,16 @@ virginica          329.4        148.7         277.6  ...  478.1  378.9  111.5226
 
 [3 rows x 9 columns]
 
-                                         ROWS 146 - 151 : 
+THE SUM TOTAL OF SEPAL LENGTH COLUMN : 
+876.5
+THE SUM TOTAL OF SEPAL WIDTH COLUMN : 
+458.1
+THE SUM TOTAL OF PETAL LENGTH COLUMN : 
+563.8
+THE SUM TOTAL OF PETAL WIDTH COLUMN  : 
+179.8
+
+                                         ROWS 140 - 150 : 
      sepal_length  sepal_width  petal_length  petal_width  ...  pl*pw  sl+sw  pl+pw     sl/sw
 146           6.3          2.5           5.0          1.9  ...   9.50    8.8    6.9  2.520000
 147           6.5          3.0           5.2          2.0  ...  10.40    9.5    7.2  2.166667
@@ -82,12 +139,13 @@ virginica          329.4        148.7         277.6  ...  478.1  378.9  111.5226
 
 [6 rows x 10 columns]
 
- THE SPECIES COLUMN : 
-0    new
-1    new
-2    new
-3    new
-4    new
+ REPLACE SETOSA WITH ROSE IN THE SPECIES COLUMN
+ CHANGE BACK TO SETOSA  : 
+0    rose
+1    rose
+2    rose
+3    rose
+4    rose
 Name: species, dtype: object
 0    setosa
 1    setosa
@@ -128,7 +186,7 @@ The total number of virginica contained in the iris.csv file is 50
                      SORTED LIST OF UNIQUE VALUES : 
 [4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9]
                      RANDOM SHUFFLED LIST OF UNIQUE VALUES : 
-[7.1, 5.4, 7.6, 5.6, 6.5, 6.4, 5.2, 7.3, 4.5, 7.4, 4.8, 5.1, 6.2, 7.2, 5.9, 5.3, 4.3, 7.7, 5.7, 4.7, 4.9, 6.7, 6.1, 7.9, 4.4, 6.6, 5.5, 6.3, 4.6, 5.8, 7.0, 5.0, 6.0, 6.9, 6.8]
+[5.5, 5.8, 7.7, 6.6, 6.1, 6.0, 5.3, 4.4, 7.9, 4.7, 6.2, 4.6, 4.9, 6.9, 7.1, 5.2, 5.6, 6.7, 5.0, 6.5, 7.6, 7.4, 6.3, 7.2, 5.1, 4.3, 5.4, 7.0, 7.3, 5.9, 4.8, 4.5, 6.8, 6.4, 5.7]
 
 
                    SERIES OF UNIQUE SORTED VALUES FOR SEPAL WIDTH : 
@@ -137,7 +195,7 @@ The total number of virginica contained in the iris.csv file is 50
                      SORTED LIST OF UNIQUE VALUES : 
 [2.0, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.4]
                      RANDOM SHUFFLED LIST OF UNIQUE VALUES : 
-[2.9, 4.2, 2.2, 4.0, 2.6, 4.1, 3.1, 2.7, 3.6, 3.8, 2.4, 2.0, 2.8, 3.5, 3.4, 3.0, 4.4, 3.9, 3.3, 2.3, 3.7, 3.2, 2.5]
+[4.0, 3.8, 3.5, 2.4, 2.0, 2.9, 3.7, 3.1, 3.6, 2.5, 4.2, 2.6, 3.2, 3.4, 2.3, 4.1, 3.3, 3.0, 2.2, 2.8, 4.4, 2.7, 3.9]
 
 
                     SERIES OF UNIQUE SORTED VALUES FOR PETAL LENGTH : 
@@ -147,7 +205,7 @@ The total number of virginica contained in the iris.csv file is 50
                      SORTED LIST OF UNIQUE VALUES : 
 [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.9, 3.0, 3.3, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.1, 6.3, 6.4, 6.6, 6.7, 6.9]
                      RANDOM SHUFFLED LIST OF UNIQUE VALUES : 
-[4.4, 5.5, 4.1, 3.5, 1.1, 3.7, 4.9, 6.1, 6.7, 4.0, 4.8, 6.4, 3.0, 3.8, 6.9, 1.6, 5.3, 5.8, 3.3, 1.7, 6.0, 3.9, 6.6, 1.5, 5.7, 4.3, 4.7, 5.2, 1.9, 1.3, 4.2, 1.0, 4.5, 5.4, 5.9, 1.2, 6.3, 1.4, 5.6, 3.6, 5.1, 5.0, 4.6]
+[4.0, 6.4, 5.2, 5.7, 5.0, 5.8, 5.9, 1.7, 3.8, 6.1, 3.7, 1.3, 6.6, 3.6, 3.3, 6.9, 1.5, 4.9, 4.8, 4.5, 1.0, 5.4, 1.2, 4.1, 4.6, 5.6, 3.5, 1.9, 5.1, 4.2, 1.6, 6.7, 4.7, 4.3, 6.0, 6.3, 4.4, 5.3, 3.9, 5.5, 3.0, 1.1, 1.4]
 
 
                     SERIES OF UNIQUE SORTED VALUES FOR PETAL WIDTH : 
@@ -156,9 +214,10 @@ The total number of virginica contained in the iris.csv file is 50
                      SORTED LIST OF UNIQUE VALUES : 
 [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5]
                      RANDOM SHUFFLED LIST OF UNIQUE VALUES : 
-[1.4, 1.8, 1.6, 1.5, 0.1, 2.3, 2.2, 2.1, 1.0, 2.0, 0.6, 0.5, 1.7, 1.9, 0.3, 0.2, 1.1, 1.2, 1.3, 2.4, 0.4, 2.5]
+[0.6, 1.0, 1.2, 0.3, 2.4, 1.8, 2.2, 1.1, 0.4, 2.1, 0.5, 2.0, 2.3, 1.9, 1.5, 1.4, 0.1, 1.3, 1.7, 2.5, 0.2, 1.6]
 
-SEPAL LENGTH + SEPAL WIDTH
+COLUMN ADDITION 
+SEPAL LENGTH + SEPAL WIDTH 
 0    8.6
 1    7.9
 2    7.9
@@ -171,6 +230,7 @@ SEPAL LENGTH + SEPAL WIDTH
 9    8.0
 Name: SL + SW, dtype: float64
 
+COLUMN ADDITION 
 PETAL LENGTH + PETAL WIDTH
 0    1.6
 1    1.6
