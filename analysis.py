@@ -30,6 +30,26 @@ summary.head()
 print("                                         SUMMARY OF DATA : ")
 print(summary)
 print()
+
+# https://github.com/gabrielmulligan/fishersirisdataset/blob/master/fisher_scatterplot.py
+# print a statistical summary by Species
+# Firstly, define each species in the dataset i.e. how Python knows which of the three Iris varieties it is
+setosa =iris[iris['species']=='setosa']
+versicolor =iris[iris['species']=='versicolor']
+virginica =iris[iris['species']=='virginica']
+
+# print a statistical summary using the describe function
+print ("")
+print ("                            Summary Statistical Analysis - Iris Setosa")
+print(setosa.describe())
+print ("")
+print ("                            Summary Statistical Analysis - Iris Versicolor")
+print(versicolor.describe())
+print ("")
+print ("                            Summary Statistical Analysis - Iris Virginica")
+print(virginica.describe())
+print ("")
+
 print("                                         THE FIRST 10 ROWS : ")
 print(iris[iris_columns].head(11))
 print()
