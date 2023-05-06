@@ -10,20 +10,37 @@ import fileinput
 import random
 
 filename = "iris.csv"
-
+# https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
 iris = pd.read_csv('iris.csv')
-#print(iris)
+sys.stdout = open('output.txt','wt')
+print("             PROGRAMMING AND SCRIPTING PROJECT : OUTPUT TEXT FILE")
+print()
+print("5 COLUMNS")
+print(iris.columns)
 iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species']
 iris['sl*sw'] = iris['sepal_length'] * iris['sepal_width']
-iris['pl*pw'] = iris['petal_length'] * iris['petal_width']
+iris['pl/pw'] = iris['petal_length'] / iris['petal_width']
 iris['sl+sw'] = iris['sepal_length'] + iris['sepal_width']
-iris['pl+pw'] = iris['petal_length'] + iris['petal_width']
-iris['sl/sw'] = iris['sepal_length'] / iris['sepal_width']
-iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl*pw', 'sl+sw', 'pl+pw', 'sl/sw']
-
-print(iris["sl/sw"].head(5))
-
-sys.stdout = open('output.txt','wt')
+iris['pl-pw'] = iris['petal_length'] - iris['petal_width']
+#iris['sl/sw'] = iris[int('sepal_length')] ^ iris[int('sepal_width')]
+iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', 'species', 'sl*sw', 'pl/pw', 'sl+sw', 'pl-pw']
+print()
+print("9 COLUMNS")
+print(iris.columns)
+print()
+print("PETAL LENGTH DIVIDED BY PETAL WIDTH")
+print(iris["pl/pw"].head(5))
+print()
+print("Data Shape : Numbers of rows and columns")
+print(iris.shape)
+print()
+print("ROWS 65 to 70")
+print(iris[65:71])
+print()
+print("ROWS 100 to 105")
+sliced_data=iris[100:106]
+print(sliced_data)
+print()
 summary = iris.describe()
 summary = summary.transpose()
 summary.head()
@@ -167,12 +184,25 @@ with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
 with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
     iris['petal_width'].to_excel(writer, sheet_name="petal_width", index=False)
 with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
-    iris['pl+pw'].to_excel(writer, sheet_name="pl+pw", index=False)
+    iris['pl-pw'].to_excel(writer, sheet_name="pl-pw", index=False)
 
 def getUnique(iris, nameOfCol, delim = ','):
     # drop na gets rid of the values in the series that have no value
     # this actually returns a numpy.ndarray
-    valuesWithDelims = iris[nameOfCol].dropna().unique() 
+    valuesWithDelims = iris[nameOfCol].dropna().unique()
+    print(valuesWithDelims)
+    print("                     SERIES OF UNIQUE SORTED VALUES : ")
+    valuesWithDelims.sort()
+    print(valuesWithDelims)
+    list = valuesWithDelims.tolist()
+    print("                     SORTED LIST OF UNIQUE VALUES : ")
+    print(list)
+    random.shuffle(list)
+    print("                     RANDOM SHUFFLED LIST OF UNIQUE VALUES : ")
+    print(list) 
+    
+'''    
+def sortSeries(valuesWithDelims):
     valuesWithDelims.sort()
     print(valuesWithDelims)
     list = valuesWithDelims.tolist()
@@ -182,35 +212,43 @@ def getUnique(iris, nameOfCol, delim = ','):
     print("                     RANDOM SHUFFLED LIST OF UNIQUE VALUES : ")
     print(list)
 #    print(iris[nameOfCol].dropna().unique())
+'''
+
 print()
 print()
-print("                   SERIES OF UNIQUE SORTED VALUES FOR SEPAL LENGTH : ")
+#print([iris['petal_length']])
+print("                   SERIES OF UNIQUE UNSORTED VALUES FOR SEPAL LENGTH : ")
 getUnique(iris, nameOfCol='sepal_length', delim = ',')
 print()
 print()
-print("                   SERIES OF UNIQUE SORTED VALUES FOR SEPAL WIDTH : ")
+print("                   SERIES OF UNIQUE UNSORTED VALUES FOR SEPAL WIDTH : ")
 getUnique(iris, nameOfCol='sepal_width', delim = ',')
 print()
 print()
-print("                    SERIES OF UNIQUE SORTED VALUES FOR PETAL LENGTH : ")
+print("                    SERIES OF UNIQUE UNSORTED VALUES FOR PETAL LENGTH : ")
 getUnique(iris, nameOfCol='petal_length', delim = ',')
 print()
 print()
-print("                    SERIES OF UNIQUE SORTED VALUES FOR PETAL WIDTH : ")
+print("                    SERIES OF UNIQUE UNSORTED VALUES FOR PETAL WIDTH : ")
 getUnique(iris, nameOfCol='petal_width', delim = ',')
+#sortSeries(valuesWithDelims)
 
 def ColumnAddition(iris, newCol ,col1, col2, delim=', ', index=False):
     iris[newCol] = iris[col1] + iris[col2] 
     print(f"{iris[newCol].head(10)}")
     return iris[newCol]
 print()
+def ColumnSubtraction(iris, newCol ,col1, col2, delim=', ', index=False):
+    iris[newCol] = iris[col1] - iris[col2] 
+    print(f"{iris[newCol].tail(10)}")
+    return iris[newCol]
 print("COLUMN ADDITION ")
 print("SEPAL LENGTH + SEPAL WIDTH ")
-ColumnAddition(iris, newCol='SL + SW', col1='sepal_length', col2='sepal_width', delim=', ', index=False)
+ColumnAddition(iris, newCol='SL PLUS SW', col1='sepal_length', col2='sepal_width', delim=', ', index=False)
 print()
-print("COLUMN ADDITION ")
-print("PETAL LENGTH + PETAL WIDTH")
-ColumnAddition(iris, newCol='PL + PW', col1='petal_length', col2='petal_width', delim=', ', index=False)
+print("COLUMN SUBTRACTION ")
+print("PETAL LENGTH MINUS PETAL WIDTH")
+ColumnSubtraction(iris, newCol='PL MINUS PW', col1='petal_length', col2='petal_width', delim=', ', index=False)
 
 #with open("sepal_length.txt", "wt") as f:
 #    print(iris_columns['sepal_length'])
