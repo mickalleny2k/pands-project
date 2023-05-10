@@ -9,6 +9,16 @@ import re
 import fileinput
 import random
 
+with open("iris.csv") as f: #Opens Iris data set csv file in data folder
+    for line in f:# loops through each line
+        line = line.replace(',', '  ') #replaces comma with space, code from Mohamed Noor
+        line = line.rstrip() #Removes nextline code on end, code from Mohamed Noor
+        print(line.split(',')[:]) #Splits and Prints 
+        #each line as a list, colon separates each item in
+        # columns
+    for column in f:
+        print (f.read())
+
 filename = "iris.csv"
 # https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
 iris = pd.read_csv('iris.csv')
@@ -150,22 +160,23 @@ number_of_virginica = 0
 
 #Research
 #https://stackoverflow.com/questions/7439145/i-want-to-read-in-a-file-from-the-command-line-in-python
-#Use a for loop to count the number of e's in each line of the text file
-
-for line in fileinput.input():
-    letters = len(re.findall('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]', line))
-    chars = len(re.findall('[?/:()%@#*<,]', line))
-    numbers = len(re.findall('[0123456789]', line))
-    setosa = len(re.findall('setosa', line))
-    versicolor = len(re.findall('versicolor', line))
-    virginica = len(re.findall('virginica', line))
-    #find all of the e's and E's in each line
-    number_of_letters = number_of_letters + letters
-    number_of_chars = number_of_chars + chars
-    number_of_numbers = number_of_numbers + numbers
-    number_of_setosa = number_of_setosa + setosa
-    number_of_versicolor = number_of_versicolor + versicolor
-    number_of_virginica = number_of_virginica + virginica
+#Use a for loop to count the total number of letters, characters, numbers in each line of the text file
+# remove fileinput
+with open("iris.csv") as f:
+    for line in f:
+        letters = len(re.findall('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]', line))
+        chars = len(re.findall('[?/:()%@#*<,]', line))
+        numbers = len(re.findall('[0123456789]', line))
+        #find all of the letters, characters, numbers in each line
+        setosa = len(re.findall('setosa', line))
+        versicolor = len(re.findall('versicolor', line))
+        virginica = len(re.findall('virginica', line))
+        number_of_letters = number_of_letters + letters
+        number_of_chars = number_of_chars + chars
+        number_of_numbers = number_of_numbers + numbers
+        number_of_setosa = number_of_setosa + setosa
+        number_of_versicolor = number_of_versicolor + versicolor
+        number_of_virginica = number_of_virginica + virginica
     # Update the variable after each iteration of the loop
 
 print()
@@ -176,6 +187,7 @@ print(f"The total number of numbers contained in the iris.csv file is {number_of
 print(f"The total number of setosa contained in the iris.csv file is {number_of_setosa}")
 print(f"The total number of versicolor contained in the iris.csv file is {number_of_versicolor}")
 print(f"The total number of virginica contained in the iris.csv file is {number_of_virginica}")
+
 
 excel_file = "output.xlsx"
 iris.to_excel('output.xlsx')
