@@ -154,13 +154,17 @@ print(iris.loc[75:80])
 #https://stackoverflow.com/questions/43772362/how-to-print-a-specific-row-of-a-pandas-dataframe
 iris.replace({'species':'setosa'}, {'species': 'rose'}, inplace=True, regex=True)
 print()
+#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html?highlight=replace#pandas.DataFrame.replace
 print(" REPLACE SETOSA WITH ROSE IN THE SPECIES COLUMN")
 print(" CHANGE BACK TO SETOSA  : ")
 print(iris["species"].head(5))
 iris.replace({'species':'rose'}, {'species': 'setosa'}, inplace=True, regex=True)
+#The pandas replace function came in handy here.
 print(iris["species"].head(5))
 print()
 print(" THE DATAFRAME SIZE : ")
+#The pandas size function did this for me.
+#https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html?highlight=size#pandas.DataFrame.size
 print(f"The dataframe size is {iris.size}")
 print()
 print(" CROSS TABULATION : ")
@@ -170,6 +174,7 @@ col1and2 = ['sepal_length', 'sepal_width']
 #print(iris[['sepal_length', 'sepal_width']].head(6)) 
 print(" COLUMN 1 & 2 : ")
 print(iris[col1and2].head(6))
+#I printed columns 1 and 2. The other columns weren't printed.
 
 number_of_letters = 0
 number_of_chars = 0
