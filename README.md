@@ -41,19 +41,21 @@ All other rows were ignored.
 https://realpython.com/python-print/
 
 # Histograms
-
 Saves a histogram of each variable to png files
 
 ![Screenshot](Histograms.png)
 
 # Scatterplot
-
 Saves a scatterplot of each variable to png files
 
 ![Screenshot](scatterplot.png)
 
-# Pairplots
+# Histograms and Scatterplots
+Saves histograms and scatterplots to a png file
 
+![Screenshot](Scats&Hists.png)
+
+# Pairplots
 Saves pairplots to a png file
 
 ![Screenshot](pairplot.png)
