@@ -109,6 +109,18 @@ I calculated the sum of the petal width column
 ## ROWS 140 - 150
 I called the panndas iloc function to select rows 140 - 150
 
+## REPLACE SETOSA WITH ROSE IN THE SPECIES COLUMN
+I replaced setosa with rose in the species column.
+Then I swiftly changed back to setosa.
+The pandas replace function came in handy here.
+
+## THE DATAFRAME SIZE :
+The dataframe size is 1350
+The pandas dataframe function did this for me.
+
+## COLUMN 1 & 2
+I printed columns 1 and 2. The other columns weren't printed.
+
 # Histograms
 Saves a histogram of each variable to png files
 
@@ -144,4 +156,6 @@ Saves pairplots to a png file
 - https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html?highlight=sum#pandas.core.groupby.DataFrameGroupBy.sum
 - https://www.geeksforgeeks.org/python-pandas-dataframe-sample/
 - https://www.w3schools.com/python/pandas/ref_df_iloc.asp
+- https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html?highlight=replace#pandas.DataFrame.replace
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html?highlight=size#pandas.DataFrame.size
 
