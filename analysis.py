@@ -9,16 +9,6 @@ import re
 import fileinput
 import random
 
-with open("iris.csv") as f: #Opens Iris data set csv file in data folder
-    for line in f:# loops through each line
-        line = line.replace(',', '  ') #replaces comma with space, code from Mohamed Noor
-        line = line.rstrip() #Removes nextline code on end, code from Mohamed Noor
-        print(line.split(',')[:]) #Splits and Prints 
-        #each line as a list, colon separates each item in
-        # columns
-    for column in f:
-        print (f.read())
-
 filename = "iris.csv"
 # https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
 iris = pd.read_csv('iris.csv')
@@ -37,12 +27,15 @@ iris_columns = ['sepal_length', 'sepal_width' , 'petal_length', 'petal_width', '
 print()
 print("9 COLUMNS")
 print(iris.columns)
+#https://www.geeksforgeeks.org/python-pandas-dataframe-columns/
 print()
 print("PETAL LENGTH DIVIDED BY PETAL WIDTH")
 print(iris["pl/pw"].head(5))
+#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
 print()
 print("Data Shape : Numbers of rows and columns")
 print(iris.shape)
+#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.shape.html
 print()
 print("ROWS 65 to 70")
 print(iris[65:71])
@@ -129,8 +122,7 @@ print(iris.iloc[146:151])
 print()
 print("                                         ROWS 75 - 80 : ")
 print(iris.loc[75:80])
-#iris.replace(to_replace='setosa', value='asotes')
-#iris.replace(to_replace='setosa', value='new', regex=True)
+#https://stackoverflow.com/questions/43772362/how-to-print-a-specific-row-of-a-pandas-dataframe
 iris.replace({'species':'setosa'}, {'species': 'rose'}, inplace=True, regex=True)
 print()
 print(" REPLACE SETOSA WITH ROSE IN THE SPECIES COLUMN")
@@ -303,6 +295,17 @@ plt.savefig('pairplot.png')
 plt.show()
 plt.close()
 
-# YOUR CODE HERE
+print()
+print("Print all 150 original rows and 5 columns in the Iris Fisher dataset using a for loop")
+#Print all 150 original rows and 5 columns in the Iris Fisher dataset using a for loop
+with open("iris.csv") as f: #Opens Iris data set csv file in data folder
+    for line in f:# loops through each line
+        line = line.replace(',', '  ') #replaces comma with space, code from Mohamed Noor
+        line = line.rstrip() #Removes nextline code on end, code from Mohamed Noor
+        print(line.split(',')[:]) #Splits and Prints 
+        #each line as a list, colon separates each item in
+        # columns
+    for column in f:
+        print (f.read())
 
 
