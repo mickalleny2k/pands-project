@@ -94,6 +94,21 @@ I grouped the dataset by species and calculated the max of each group.
 ## THE SUM OF EACH SPECIES
 I grouped the dataset by species and calculated the sum of each group.
 
+## THE SUM TOTAL OF SEPAL LENGTH COLUMN
+I calculated the sum of the sepal length column
+
+## THE SUM TOTAL OF SEPAL WIDTH COLUMN
+I calculated the sum of the sepal width column
+
+## THE SUM TOTAL OF PETAL LENGTH COLUMN
+I calculated the sum of the petal length column
+
+## THE SUM TOTAL OF PETAL WIDTH COLUMN
+I calculated the sum of the petal width column
+
+## ROWS 140 - 150
+I called the panndas iloc function to select rows 140 - 150
+
 # Histograms
 Saves a histogram of each variable to png files
 
@@ -128,4 +143,5 @@ Saves pairplots to a png file
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html#pandas.DataFrame.tail
 - https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html?highlight=sum#pandas.core.groupby.DataFrameGroupBy.sum
 - https://www.geeksforgeeks.org/python-pandas-dataframe-sample/
+- https://www.w3schools.com/python/pandas/ref_df_iloc.asp
 
