@@ -38,6 +38,7 @@ https://realpython.com/python-print/
 
 # Installation
 Run the python program analysis.py in Visual Studio Code
+![Screenshot](installation.PNG)
 
 # Research
 - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
