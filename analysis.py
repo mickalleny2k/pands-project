@@ -126,22 +126,28 @@ print("                                         THE SUM OF EACH SPECIES : ")
 print(sum)
 #https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html?highlight=sum#pandas.core.groupby.DataFrameGroupBy.sum
 print()
+#https://www.w3schools.com/python/pandas/ref_df_sum.asp
 sum = iris['sepal_length'].sum()
 print("THE SUM TOTAL OF SEPAL LENGTH COLUMN : ")
+#I I calculated the sum total of the sepal length column
 print(sum)
 sum = iris['sepal_width'].sum()
+#I calculated the sum of the sepal width column
 print("THE SUM TOTAL OF SEPAL WIDTH COLUMN : ")
 print(sum)
 sum = iris['petal_length'].sum()
+#I calculated the sum of the petal length column
 print("THE SUM TOTAL OF PETAL LENGTH COLUMN : ")
 print(sum)
 sum = iris['petal_width'].sum()
 print("THE SUM TOTAL OF PETAL WIDTH COLUMN  : ")
+#I calculated the sum of the petal width column
 print(sum)
 print()
 print("                                         ROWS 140 - 150 : ") 
 print(iris.iloc[146:151])
-#print(iris.iloc[:-4])
+#https://www.w3schools.com/python/pandas/ref_df_iloc.asp
+#I called the panndas iloc function to select rows 140 - 150
 print()
 print("                                         ROWS 75 - 80 : ")
 print(iris.loc[75:80])
