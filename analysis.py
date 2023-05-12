@@ -216,11 +216,16 @@ print(f"The total number of virginica contained in the iris.csv file is {number_
 
 
 excel_file = "output.xlsx"
+#I'm printing the entire contents of the iris dataframe to an excel spreadsheet
 iris.to_excel('output.xlsx')
+#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.ExcelWriter.html
+#I'm printing the Petal Length column of the iris dataframe to its own worksheet
 with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
     iris['petal_length'].to_excel(writer, sheet_name="petal_length", index=False)
+#I'm printing the Petal Width column of the iris dataframe to its own worksheet
 with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
     iris['petal_width'].to_excel(writer, sheet_name="petal_width", index=False)
+#I'm printing the 'pl-pw' column of the iris dataframe to its own worksheet
 with pd.ExcelWriter(excel_file, engine="openpyxl", mode="a") as writer:
     iris['pl-pw'].to_excel(writer, sheet_name="pl-pw", index=False)
 
