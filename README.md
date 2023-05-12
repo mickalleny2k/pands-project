@@ -14,6 +14,10 @@ Write a program called analysis.py that:
 3. Outputs a scatter plot of each pair of variables.
 4. Performs any other analysis you think is appropriate
 
+# Installation
+Run the python program analysis.py in Visual Studio Code
+![Screenshot](installation.PNG)
+
 # PROGRAMMING AND SCRIPTING PROJECT : OUTPUT TEXT FILE
 ## 5 COLUMNS
 There are 5 columns in the original iris.csv file: 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'
@@ -36,9 +40,9 @@ I only printed rows 65 to 70.
 All other rows were ignored.
 https://realpython.com/python-print/
 
-# Installation
-Run the python program analysis.py in Visual Studio Code
-![Screenshot](installation.PNG)
+# Histograms
+Saves a histogram of each variable to png files
+![Histograms](Histograms.PNG)
 
 # Research
 - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
