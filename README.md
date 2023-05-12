@@ -79,6 +79,20 @@ All other rows were ignored.
 I printed a random sample of 10 rows.
 I called the pandas function sample()
 
+## THE MEAN OF EACH SPECIES
+I grouped the dataset by species and calculated the mean of each group.
+
+## THE STANDARD DEVIATION OF EACH SPECIES
+I grouped the dataset by species and calculated the standard deviation of each group.
+
+## THE MEDIAN OF EACH SPECIES
+I grouped the dataset by species and calculated the median of each group.
+
+## THE MAX OF EACH SPECIES
+I grouped the dataset by species and calculated the max of each group.
+
+## THE SUM OF EACH SPECIES
+I grouped the dataset by species and calculated the sum of each group.
 
 # Histograms
 Saves a histogram of each variable to png files
@@ -112,5 +126,6 @@ Saves pairplots to a png file
 - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
 - https://pandas.pydata.org/docs/getting_started/intro_tutorials/06_calculate_statistics.html
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html#pandas.DataFrame.tail
+- https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html?highlight=sum#pandas.core.groupby.DataFrameGroupBy.sum
 - https://www.geeksforgeeks.org/python-pandas-dataframe-sample/
 
