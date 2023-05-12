@@ -161,4 +161,4 @@ Saves pairplots to a png file
 
 # Jupyter Notebook
 
-![Screenshot](Jupyter.png)
+![Screenshot](Jupyter.PNG)
