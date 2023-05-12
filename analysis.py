@@ -89,29 +89,42 @@ print(iris.sample(10))
 #https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html?highlight=sample#pandas.DataFrame.sample
 #I printed a random sample of 10 rows. I called the pandas function sample()
 print()
+#https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html?highlight=groupby#pandas.DataFrame.groupby
 mean = iris.groupby('species').mean()
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.mean.html?highlight=mean#pandas.core.groupby.DataFrameGroupBy.mean
 print("                                         THE MEAN OF EACH SPECIES : ")
+#I grouped the dataset by species and calculated the mean of each group.
 print(mean)
 print()
+#I grouped the dataset by species and calculated the standard deviation of each group.
 std = iris.groupby('species').std()
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.std.html?highlight=std#pandas.core.groupby.DataFrameGroupBy.std
 print("                                         THE STANDARD DEVIATION OF EACH SPECIES : ")
 print(std)
 print()
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.median.html?highlight=median#pandas.core.groupby.DataFrameGroupBy.median
 median = iris.groupby('species').median()
+#I grouped the dataset by species and calculated the median of each group.
 print("                                         THE MEDIAN OF EACH SPECIES : ")
 print(median)
 print()
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.max.html?highlight=max#pandas.core.groupby.DataFrameGroupBy.max
 max = iris.groupby('species').max()
 print("                                         THE MAX OF EACH SPECIES : ")
 print(max)
+#I grouped the dataset by species and calculated the maximum of each group.
 print()
 min = iris.groupby('species').min()
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.min.html?highlight=min#pandas.core.groupby.DataFrameGroupBy.min
 print("                                         THE MIN OF EACH SPECIES : ")
 print(min)
+#I grouped the dataset by species and calculated the maximum of each group.
 print()
 sum = iris.groupby('species').sum()
+#I grouped the dataset by species and calculated the sum of each group.
 print("                                         THE SUM OF EACH SPECIES : ")
 print(sum)
+#https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.sum.html?highlight=sum#pandas.core.groupby.DataFrameGroupBy.sum
 print()
 sum = iris['sepal_length'].sum()
 print("THE SUM TOTAL OF SEPAL LENGTH COLUMN : ")
@@ -214,19 +227,6 @@ def getUnique(iris, nameOfCol, delim = ','):
     random.shuffle(list)
     print("                     RANDOM SHUFFLED LIST OF UNIQUE VALUES : ")
     print(list) 
-    
-'''    
-def sortSeries(valuesWithDelims):
-    valuesWithDelims.sort()
-    print(valuesWithDelims)
-    list = valuesWithDelims.tolist()
-    print("                     SORTED LIST OF UNIQUE VALUES : ")
-    print(list)
-    random.shuffle(list)
-    print("                     RANDOM SHUFFLED LIST OF UNIQUE VALUES : ")
-    print(list)
-#    print(iris[nameOfCol].dropna().unique())
-'''
 
 print()
 print()
