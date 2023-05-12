@@ -52,6 +52,12 @@ Saves a scatterplot of each variable to png files
 
 ![Screenshot](scatterplot.png)
 
+# Pairplots
+
+Saves pairplots to a png file
+
+![Screenshot](pairplot.png)
+
 
 # Research
 - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
