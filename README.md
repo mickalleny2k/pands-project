@@ -42,7 +42,7 @@ https://realpython.com/python-print/
 
 # Histograms
 Saves a histogram of each variable to png files
-![Histograms](Histograms.PNG)
+![Screenshot](Histograms.png)
 
 # Research
 - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
