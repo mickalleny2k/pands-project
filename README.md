@@ -159,3 +159,6 @@ Saves pairplots to a png file
 - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html?highlight=replace#pandas.DataFrame.replace
 - https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html?highlight=size#pandas.DataFrame.size
 
+# Jupyter Notebook
+
+![Screenshot](Jupyter.png)
