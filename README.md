@@ -40,6 +40,46 @@ I only printed rows 65 to 70.
 All other rows were ignored.
 https://realpython.com/python-print/
 
+## ROWS 100 to 105
+Print ROWS 100 to 105
+All other rows were ignored.
+
+## SUMMARY OF DATA
+The following statistical data is calculated: count, mean, std, min, 25%, 50%, 75% and max
+Count : Number of rows
+Mean: Average
+Std: Standard Deviation
+25% : Twenty Five percent
+50% : Fifty percent
+75% : Seventy five percent
+Min: Minimum
+Max : Maximum 
+
+## Summary Statistical Analysis - Iris Setosa
+The following statistical data is calculated: count, mean, std, min, 25%, 50%, 75% and max
+For the species Iris Setosa. Not the other 2 species.
+
+## Summary Statistical Analysis - Iris Versicolor
+The following statistical data is calculated: count, mean, std, min, 25%, 50%, 75% and max
+For the species Iris Versicolor. Not the other 2 species.
+
+## Summary Statistical Analysis - Iris Virginica
+The following statistical data is calculated: count, mean, std, min, 25%, 50%, 75% and max
+For the species Iris Virginica. Not the other 2 species.
+
+## THE FIRST 10 ROWS
+I printed the head of the dataset to the ouput file.
+All other rows were ignored.
+
+## THE LAST 10 ROWS :
+I printed the tail of the dataset to the ouput file.
+All other rows were ignored.
+
+## RANDOM SAMPLE OF 10 ROWS
+I printed a random sample of 10 rows.
+I called the pandas function sample()
+
+
 # Histograms
 Saves a histogram of each variable to png files
 
@@ -70,4 +110,7 @@ Saves pairplots to a png file
 - https://realpython.com/python-print/
 - https://stackoverflow.com/questions/43772362/how-to-print-a-specific-row-of-a-pandas-dataframe
 - https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html
+- https://pandas.pydata.org/docs/getting_started/intro_tutorials/06_calculate_statistics.html
+- https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html#pandas.DataFrame.tail
+- https://www.geeksforgeeks.org/python-pandas-dataframe-sample/
 
