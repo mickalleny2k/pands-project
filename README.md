@@ -41,8 +41,17 @@ All other rows were ignored.
 https://realpython.com/python-print/
 
 # Histograms
+
 Saves a histogram of each variable to png files
+
 ![Screenshot](Histograms.png)
+
+# Scatterplot
+
+Saves a scatterplot of each variable to png files
+
+![Screenshot](scatterplot.png)
+
 
 # Research
 - https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
