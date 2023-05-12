@@ -39,14 +39,18 @@ print(iris.shape)
 print()
 print("ROWS 65 to 70")
 print(iris[65:71])
+#I only printed rows 65 to 70. All other rows were ignored. https://realpython.com/python-print/
 print()
 print("ROWS 100 to 105")
 sliced_data=iris[100:106]
 print(sliced_data)
+# Print ROWS 100 to 105 All other rows were ignored.
 print()
 summary = iris.describe()
 summary = summary.transpose()
 summary.head()
+#The following statistical data is calculated: count, mean, std, min, 25%, 50%, 75% and max Count : Number of rows Mean: Average Std: Standard Deviation 25% : Twenty Five percent 50% : Fifty percent 75% : Seventy five percent Min: Minimum Max : Maximum
+#https://pandas.pydata.org/docs/getting_started/intro_tutorials/06_calculate_statistics.html?highlight=summary
 print("                                         SUMMARY OF DATA : ")
 print(summary)
 print()
@@ -72,12 +76,18 @@ print ("")
 
 print("                                         THE FIRST 10 ROWS : ")
 print(iris[iris_columns].head(11))
+#https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html?highlight=head#pandas.DataFrame.head
+#I printed the head of the dataset to the ouput file. All other rows were ignored.
 print()
 print("                                         THE LAST 10 ROWS : ")
 print(iris[iris_columns].tail(10))
+#I printed the tail of the dataset to the ouput file. All other rows were ignored.
+#https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.tail.html#pandas.DataFrame.tail
 print()
 print("                                         RANDOM SAMPLE OF 10 ROWS : ")
 print(iris.sample(10))
+#https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html?highlight=sample#pandas.DataFrame.sample
+#I printed a random sample of 10 rows. I called the pandas function sample()
 print()
 mean = iris.groupby('species').mean()
 print("                                         THE MEAN OF EACH SPECIES : ")
